@@ -77,7 +77,7 @@ export default class Comments extends Component {
         <div className="comment-section__content">
           <FormComponent image={this.state.image} label={this.state.label} changeImage={() => this.changeImage} changeLabel={() => this.changeLabel} />
           <div className="comment-container">
-            <CommentComponent image={this.state.image} name={this.state.name} timestamp={this.state.timestamp} paragraph={this.state.paragraph} changeImage={() => this.changeImage} changeName={() => this.changeName} changeTimestamp={() => this.changeTimestamp} changeParagraph={() => this.changeParagraph} />
+<!--             <CommentComponent image={this.state.image} name={this.state.name} timestamp={this.state.timestamp} paragraph={this.state.paragraph} changeImage={() => this.changeImage} changeName={() => this.changeName} changeTimestamp={() => this.changeTimestamp} changeParagraph={() => this.changeParagraph} /> -->
             <div className="comment">
               <img src={this.state.defaultImage} className="comment__image" alt="Default" />
               <div className="comment__text">
