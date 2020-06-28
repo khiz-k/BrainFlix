@@ -1,6 +1,6 @@
 @import './partials/mixins';
 
-main {
+.details {
   @include flex-column;
   @include standard-padding;
 
