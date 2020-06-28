@@ -5,16 +5,13 @@
 .description {
   width: 100%;
 
-  // @include desktop {  
-  //     padding: 0px;
-  // }
-
-  // .description-container {
-  //     margin-left: 8px;
-  // }
-
   &__title {
-    color: black; // change to global
+    color: #323232; // change to global
+    margin: 16px 0px;
+
+    @include desktop {
+      margin: 32px 0px;
+    }
   }
 
   &__top {
@@ -59,7 +56,10 @@
     flex-direction: row;
     align-items: center;
     @include h5-text-style;
-    margin: 24px 0px;
+    margin-bottom: 16px;
+    @include tablet {
+      margin: 0;
+    }
 
     .views {
       margin: 0 16px;
@@ -75,7 +75,7 @@
     @include h4-text-style;
 
     @include tablet {
-        width: 95%;
+        width: 75%;
     }
   }
 }
