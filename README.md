@@ -1,6 +1,6 @@
 ## Video Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  You will need to install node-sass, axios and react-router via npm to run this properly.
 
 ## Available Scripts
 
