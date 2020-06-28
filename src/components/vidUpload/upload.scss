@@ -1,0 +1,202 @@
+@import '../../partials/colors';
+@import '../../partials/fonts';
+@import '../../partials/mixins';
+
+.upload {
+    width: 100%;
+    @include flex-column;
+
+    @include tablet {
+       
+    }
+
+    @include desktop {
+        
+    }
+
+    &__title {
+        font-family: $global-font__bold;
+        margin: 32px 0px;
+        @include h3-text-style;
+        
+        @include tablet {
+            @include tablet-h3-text;
+        }
+
+        @include desktop {
+            margin-top: 48px;
+        }
+    }
+
+    .add-video {
+        width: 100%;
+        font-weight: 100;  
+        @include flex-column;
+        @include h5-text-style;
+       
+        @include tablet {
+            @include tablet-h5-text;
+        }
+    }
+
+    .inputs-container {
+        width: 100%;
+        @include flex-column;
+        justify-content: space-between;
+        padding: 16px 0px;
+        border-top: 1px solid #E1E1E1;
+        border-bottom: 1px solid #E1E1E1;
+
+        @include tablet {
+            @include flex-row;
+        }
+
+        .file-upload {
+            width: 288px;
+            height: 153px;
+            @include flex-column;
+
+            @include tablet {
+                width: 344px;
+                height: 183px;
+            }
+        }
+
+        .thumbnail {
+            height: 100%; 
+            background-image: url('../../assets/Images/Upload-video-preview.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;  
+            border: none;
+        }
+    
+        .name-comment {
+            width: 100%;
+
+            @include tablet {
+                height: 183px;
+            }
+
+            @include tablet {
+                margin-left: 24px;
+            }
+        }
+
+        input.username {
+            width: 97.5%;
+            padding: 5px;
+            font-family: $global-font;
+            border: 1px solid $border-color;
+            border-radius: 5px;
+
+            &:focus {
+                border-color: $primary-CTA-color;
+            }
+        }
+    
+        #username::placeholder{
+            color: #323232;
+            @include h5-text-style;
+            font-family: $global-font;
+    
+        }
+    
+        .comment__content {
+            width: 97.5%;
+            height: 50px;
+            padding: 5px;
+            font-family: $global-font;
+            border: 1px solid $border-color;
+            border-radius: 5px;
+
+            &:focus {
+                border-color: $primary-CTA-color;
+            }
+
+            @include tablet {
+                height: 105px;
+            }
+        }
+    
+        .comment__content::placeholder {
+            color: #323232;
+            @include h5-text-style;
+        }
+    }
+
+    .button-container{
+        width: 100%;
+        margin: 16px 0px;
+        display: flex;
+        justify-content: flex-end;
+
+        .cancel-button {
+            margin: 0px 16px;
+            background: white;
+            border: none;
+            color: blue;
+        }
+
+        .upload-button {
+            width: 100px;
+            background: $primary-CTA-color;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 4px;
+            padding: 15px 5px;
+            cursor: pointer;
+
+            
+            &:hover {
+                background: $CTA-hover-color;
+            }
+        }
+    }
+}
+
+//     .form-container {
+//         @include flex-row;
+//         width: 100%;
+//         padding: 16px 0px;
+//         border-bottom: solid 2px $border-color;
+
+//         @include tablet {
+//             align-items: center;
+//         }
+
+//         .form-image {
+//             height: 48px;
+//             width: 48px;
+//             border-radius: 25px;
+//         }
+
+//         .add-comment {
+//             color: #E1E1E1;
+//             @include flex-column;
+//             align-items: center;
+//             @include h5-text-style;
+//             width: 100%;
+//             margin-left: 16px; 
+//             font-weight: 100;  
+            
+//             @include tablet {
+//                 flex-direction: row;
+//                 @include tablet-h5-text;
+//             }
+            
+//             @include desktop {
+//                 margin-left: 24px;
+//             }
+
+//             .form--input {
+//                 width: 100%;
+//                 display: flex;
+//                 align-items: center;
+
+//                 .label-text {
+//                     text-transform: uppercase;
+//                     font-size: 8px;
+//                     font-weight: 700;
+//                 }
