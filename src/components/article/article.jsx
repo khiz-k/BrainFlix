@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './article.scss';
 
 export default function Article (props) {
