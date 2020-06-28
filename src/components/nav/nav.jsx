@@ -1,12 +1,12 @@
 import React from 'react';
 import './nav.scss';
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Nav(props) {
   return (
     <section className="nav-bar">
       <div className="nav-bar__logo">
-        <Link to="/home" className="nav-bar__anchor">
+        <Link to="/" className="nav-bar__anchor">
           <img src={props.logo} alt="BrainFlix Logo" className="nav-bar__logo-image" />
         </Link>
       </div>
