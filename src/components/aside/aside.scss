@@ -32,22 +32,21 @@
     padding: 0;
   }
 
-  &__list-item {
-    padding: 5px;
-  }  
-
   &__item-anchor {
     @include flex-row;
     color: $global-color;
     justify-content: flex-start;
     align-items: center;
     text-decoration: none;
+    width: fit-content;
+    margin: 0;
   }
 
   &__item-image {
     width: 120px;
     height: 70px;
     opacity: 0.9;
+    border-radius: 2.5px;
     
     &:hover {
       opacity: 1;
@@ -61,7 +60,7 @@
   }
 
   &__item-title {
-    font-weight: 700;
+    font-weight: 900;
     @include h5-text-style;
   }
 
