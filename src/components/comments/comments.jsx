@@ -8,14 +8,6 @@ let videoID = "1af0jruup5gu";
 const url = "https://project-2-api.herokuapp.com/videos/"+videoID+"?api_key="; 
 let API_KEY = "7741224a-2544-4acd-945c-a52d003ff057";
 
-const CommentCount = ({title, changeTitle}) => {
-  return (
-    <>
-      <h3 className="comment-section__title" onChange={changeTitle}>{title}</h3>
-    </>
-  )
-}
-
 const CommentForm = ({image, label, submitHandler}) => {
   // API POST COMMENT
   return (
@@ -62,7 +54,7 @@ const CommentsList = ({comments, image}) => {
     return Math.floor(seconds) + " seconds ago";
     // update time every min
     setTimeout(timeAgo, 60000);
-};
+  };
   return (
     <>
       {comments.map((comment) => <div key={comment.id} className="comment" >
@@ -81,7 +73,7 @@ const CommentsList = ({comments, image}) => {
 export default class Comments extends Component {
   state = {
     comments: [],
-    title: 3 + " comments", // comments.length count to replace 3
+    commentTitle: 3 + " comments", // comments.length count to replace 3
     user: userImage,
     image: defaultCommentImage
   };
@@ -90,11 +82,10 @@ export default class Comments extends Component {
       res => this.setState({comments: res.data.comments})
     )
   }
-  // changeTitle = event => this.setState({title: event.target.value})
   render() {
     return (
       <section className="comment-section">
-        <CommentCount title={this.state.title} changeTitle={() => this.changeTitle} />
+        <h3 className="comment-section__title" >{this.state.commentTitle}</h3>
         <div className="comment-section__content">
           <CommentForm image={this.state.user} label={this.state.label} submitHandler={(event) => event.preventDefault()}  changeImage={() => this.changeImage} changeLabel={() => this.changeLabel} />
           <div className="comment-container">
