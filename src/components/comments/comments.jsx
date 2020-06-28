@@ -4,10 +4,11 @@ import axios from 'axios';
 import userImage from '../../assets/Images/Mohan-muruge.jpg';
 import defaultCommentImage from "../../assets/Images/default-image.jpg";
 
-const url = "https://project-2-api.herokuapp.com/videos/1af0jruup5gu?api_key="; 
+let videoID = "1af0jruup5gu";
+const url = "https://project-2-api.herokuapp.com/videos/"+videoID+"?api_key="; 
 let API_KEY = "7741224a-2544-4acd-945c-a52d003ff057";
 
-const TitleComponent = ({title, changeTitle}) => {
+const CommentCount = ({title, changeTitle}) => {
   return (
     <>
       <h3 className="comment-section__title" onChange={changeTitle}>{title}</h3>
@@ -15,15 +16,15 @@ const TitleComponent = ({title, changeTitle}) => {
   )
 }
 
-const FormComponent = ({image, label, submitHandler, changeImage, changeLabel}) => {
-  // name & comment needs to be captured and pushed, need to use onsubmit
+const CommentForm = ({image, label, submitHandler}) => {
+  // API POST COMMENT
   return (
     <>
       <div className="form-container">
-        <img src={image} className="form-image" alt="User" onChange={changeImage} />
+        <img src={image} className="form-image" alt="User" />
         <form name="addComment" className="add-comment" id="add-comment" onSubmit={submitHandler}>
           <div className="form--input"> 
-            <label htmlFor="textarea-content" className="label-text" onChange={changeLabel}>{label}</label>
+            <label htmlFor="textarea-content" className="label-text" >{label}</label>
             <textarea name="userComment" className="textarea-content" id="textarea-content" placeholder="Add a new comment" required={true} defaultValue={""} /> 
           </div> 
           <div className="submit-container">
@@ -35,13 +36,10 @@ const FormComponent = ({image, label, submitHandler, changeImage, changeLabel}) 
   )
 }
 
-const CommentsList = ({comments, image, changeComment}) => {
+const CommentsList = ({comments, image}) => {
   const timeAgo = (date) => {
-
     let seconds = Math.floor((new Date() - date) / 1000);
-
     let interval = Math.floor(seconds / 31536000);
-
     if (interval > 1) {
     return interval + " years ago";
     }
@@ -62,7 +60,6 @@ const CommentsList = ({comments, image, changeComment}) => {
     return interval + " minutes ago";
     }
     return Math.floor(seconds) + " seconds ago";
-
     // update time every min
     setTimeout(timeAgo, 60000);
 };
@@ -84,7 +81,7 @@ const CommentsList = ({comments, image, changeComment}) => {
 export default class Comments extends Component {
   state = {
     comments: [],
-    title: 3 + " comments", // add a comments.length count here to replace 3
+    title: 3 + " comments", // comments.length count to replace 3
     user: userImage,
     image: defaultCommentImage
   };
@@ -93,13 +90,13 @@ export default class Comments extends Component {
       res => this.setState({comments: res.data.comments})
     )
   }
-  // changeTitle = event => this.setState({title: event.target.value}) example func
+  // changeTitle = event => this.setState({title: event.target.value})
   render() {
     return (
       <section className="comment-section">
-        <TitleComponent title={this.state.title} changeTitle={() => this.changeTitle} />
+        <CommentCount title={this.state.title} changeTitle={() => this.changeTitle} />
         <div className="comment-section__content">
-          <FormComponent image={this.state.user} label={this.state.label} submitHandler={(event) => event.preventDefault()}  changeImage={() => this.changeImage} changeLabel={() => this.changeLabel} />
+          <CommentForm image={this.state.user} label={this.state.label} submitHandler={(event) => event.preventDefault()}  changeImage={() => this.changeImage} changeLabel={() => this.changeLabel} />
           <div className="comment-container">
             <CommentsList image={this.state.image} comments={this.state.comments} /> 
           </div>

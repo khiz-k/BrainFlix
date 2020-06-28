@@ -76,7 +76,7 @@
                         border: 1px solid $border-color;
                         border-radius: 5px;
 
-                        &:focus {
+                        &:hover, &:focus {
                             border-color: $primary-CTA-color;
                         }
                         
@@ -150,13 +150,13 @@
 
             &__name {
                 @include h4-text-style;
-                margin: 0; // fix for random margin-top/bot 22px default 
+                margin: 0; // correct for margin-top/bot 
             }
 
             &__timestamp {
                 color: #E1E1E1;
                 font-weight: 100;
-                margin: 0;  // fix for random margin-top/bot 22px default 
+                margin: 0;  // correct for margin-top/bot 
                 margin-left: 16px;
                 @include h4-text-style;
             }
