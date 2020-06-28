@@ -6,21 +6,13 @@
     width: 100%;
     @include flex-column;
 
-    @include tablet {
-       
-    }
-
-    @include desktop {
-        
-    }
-
     &__title {
         font-family: $global-font__bold;
-        margin: 32px 0px;
-        @include h3-text-style;
+        margin: 24px 0px;
+        @include h1-text-style;
         
         @include tablet {
-            @include tablet-h3-text;
+            @include tablet-h1-text;
         }
 
         @include desktop {
@@ -43,11 +35,14 @@
         width: 100%;
         @include flex-column;
         justify-content: space-between;
-        padding: 16px 0px;
-        border-top: 1px solid #E1E1E1;
-        border-bottom: 1px solid #E1E1E1;
 
         @include tablet {
+            padding: 32px 0px;
+            border-top: 2px solid #E1E1E1;
+            border-bottom: 2px solid #E1E1E1;
+        }
+
+        @include desktop {
             @include flex-row;
         }
 
@@ -71,26 +66,36 @@
             border: none;
         }
     
-        .name-comment {
+        .info-container {
             width: 100%;
+            margin-top: 32px;
 
             @include tablet {
+                margin-top: 40px;
                 height: 183px;
             }
 
-            @include tablet {
-                margin-left: 24px;
+            @include desktop {
+                margin: 0 0 0 24px;
             }
         }
 
-        input.username {
+        .label-text {
+            text-transform: uppercase;
+            color: #E1E1E1;
+            font-family: $global-font__bold;
+        }
+
+        .vid-title {
             width: 97.5%;
+            height: 20px;
             padding: 5px;
             font-family: $global-font;
             border: 1px solid $border-color;
             border-radius: 5px;
+            background-color: #fafafa;
 
-            &:focus {
+            &:hover, &:focus {
                 border-color: $primary-CTA-color;
             }
         }
@@ -102,15 +107,16 @@
     
         }
     
-        .comment__content {
+        .comment-content {
             width: 97.5%;
             height: 50px;
             padding: 5px;
             font-family: $global-font;
             border: 1px solid $border-color;
             border-radius: 5px;
+            background-color: #fafafa;
 
-            &:focus {
+            &:hover, &:focus {
                 border-color: $primary-CTA-color;
             }
 
@@ -119,7 +125,8 @@
             }
         }
     
-        .comment__content::placeholder {
+        .comment-content::placeholder {
+            font-family: $global-font;
             color: #323232;
             @include h5-text-style;
         }
@@ -127,19 +134,25 @@
 
     .button-container{
         width: 100%;
-        margin: 16px 0px;
+        margin: 32px 0px;
         display: flex;
         justify-content: flex-end;
+        font-family: $global-font;
 
         .cancel-button {
+            display: none;
+            @include tablet {
+            display: inline-block;
             margin: 0px 16px;
             background: white;
             border: none;
             color: blue;
+            text-transform: uppercase;
+            }
         }
 
         .upload-button {
-            width: 100px;
+            width: 100%;
             background: $primary-CTA-color;
             color: #FFFFFF;
             text-transform: uppercase;
@@ -148,6 +161,10 @@
             padding: 15px 5px;
             cursor: pointer;
 
+            @include tablet {
+                width: 150px;
+            }
+
             
             &:hover {
                 background: $CTA-hover-color;
@@ -155,48 +172,4 @@
         }
     }
 }
-
-//     .form-container {
-//         @include flex-row;
-//         width: 100%;
-//         padding: 16px 0px;
-//         border-bottom: solid 2px $border-color;
-
-//         @include tablet {
-//             align-items: center;
-//         }
-
-//         .form-image {
-//             height: 48px;
-//             width: 48px;
-//             border-radius: 25px;
-//         }
-
-//         .add-comment {
-//             color: #E1E1E1;
-//             @include flex-column;
-//             align-items: center;
-//             @include h5-text-style;
-//             width: 100%;
-//             margin-left: 16px; 
-//             font-weight: 100;  
-            
-//             @include tablet {
-//                 flex-direction: row;
-//                 @include tablet-h5-text;
-//             }
-            
-//             @include desktop {
-//                 margin-left: 24px;
-//             }
-
-//             .form--input {
-//                 width: 100%;
-//                 display: flex;
-//                 align-items: center;
-
-//                 .label-text {
-//                     text-transform: uppercase;
-//                     font-size: 8px;
-//                     font-weight: 700;
-//                 }
+// rename classes for better use of sass
