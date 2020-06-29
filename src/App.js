@@ -57,9 +57,9 @@ class App extends React.Component  {
         </header>
         <Switch>
           <main>
-            {/* <Route path="/" exact > 
+            <Route path="/" exact > 
             <Hero id={this.state.mainVid.id} image={this.state.mainVid.image} source={this.state.mainVid.video}/>
-            </Route>  */}
+            </Route>
             <Route
               path="/video/:id"
               render={(routeProps) => <Hero id={this.state.mainVid.id} image={this.state.mainVid.image} source={this.state.mainVid.video} {...routeProps} /> }  
