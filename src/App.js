@@ -16,7 +16,10 @@ class App extends React.Component  {
           <Nav logo={BrainFlixLogo} image={UserImage}/>
         <Switch>
           <Route path="/upload" component={Upload}/>
-          <Route path="/" exact component={Main}/>
+          <Route 
+            path="/" exact
+            render={(routeProps) => <Main routeProps={routeProps} />}
+           />
           <Route 
             path="/video/:id"
             render={(routeProps) => <Main routeProps={routeProps} />}
