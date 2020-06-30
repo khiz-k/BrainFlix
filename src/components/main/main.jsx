@@ -45,7 +45,6 @@ class Main extends React.Component {
     )
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.props.routeProps.match.params.id)
     if(this.props.routeProps.match.params.id !== prevProps.routeProps.match.params.id) {
     let newVideoID = this.props.routeProps.match.params.id;
     const newURL = "https://project-2-api.herokuapp.com/videos/"+newVideoID+"?api_key="; 
