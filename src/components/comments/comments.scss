@@ -9,10 +9,10 @@
     &__title {
         font-family: $global-font__bold;
         margin: 32px 0px;
-        @include h3-text-style;
+        @include h2-text-style;
         
         @include tablet {
-            @include tablet-h3-text;
+            @include tablet-h2-text;
         }
 
         @include desktop {
