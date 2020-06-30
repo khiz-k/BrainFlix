@@ -3,9 +3,19 @@
 @import '../../partials/mixins';
 
 .upload {
-    width: 100%;
+    width: 95%;
+    margin-right: 0px;
     @include flex-column;
+    @include standard-padding;
 
+    @include tablet{
+        @include tablet-padding;
+    }
+
+    @include desktop {
+        @include desktop-padding;
+    }
+    
     &__title {
         font-family: $global-font__bold;
         margin: 24px 0px;
@@ -94,6 +104,7 @@
             border: 1px solid $border-color;
             border-radius: 5px;
             background-color: #fafafa;
+            margin-bottom: 8px;
 
             &:hover, &:focus {
                 border-color: $primary-CTA-color;
@@ -121,7 +132,7 @@
             }
 
             @include tablet {
-                height: 105px;
+                height: 95px;
             }
         }
     
