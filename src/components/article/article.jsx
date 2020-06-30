@@ -26,8 +26,8 @@ export default function Article (props) {
     return interval + " minutes ago";
     }
     return Math.floor(seconds) + " seconds ago";
-    // update time every min
-    setTimeout(timeAgo, 60000);
+    // // update time every min
+    // setTimeout(timeAgo, 60000);
 };
 let dateFormatted = timeAgo(descriptionDate);
   return (
