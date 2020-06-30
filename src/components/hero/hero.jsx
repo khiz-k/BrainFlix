@@ -10,6 +10,7 @@ export default function Hero (props) {
           <source src={props.source} type="video/mp4" className="video-source"/>
         </video>
       </section>
+      
     </>
   );
 }
