@@ -98,7 +98,7 @@ class Main extends React.Component {
   render() {
     return (
       <main>
-        <Hero id={this.state.mainVid.id} mainVid={this.state.mainVid}/>
+        <Hero mainVid={this.state.mainVid}/>
         <div className="details">
           <div className="not-aside">
             <Article mainVid={this.state.mainVid} viewsIcon={this.state.viewsIcon} likesIcon={this.state.likesIcon}/>
