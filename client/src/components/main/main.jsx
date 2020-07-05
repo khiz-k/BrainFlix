@@ -45,23 +45,24 @@ class Main extends React.Component {
     .catch(err => {
       console.log(err);
     })
-    // if (this.props.match.params.id == this.props.match.params.id) {
-    //   axios.get(myServerDefaultMainVidURL + API_KEY).then( 
-    //     res => { this.setState({ mainVid: res.data }); }
-    //   )
-    //   .catch(err => {
-    //     console.log(err);
-    //   })
-    // } else {      
-    //   let newVideoID = this.props.match.params.id;
-    //   const myServerNewMainVidURL = "http://localhost:3000/videos/"+newVideoID;
-    //   axios.get(myServerNewMainVidURL).then( 
-    //     res => {this.setState({mainVid: res.data}); }
-    //   )
-    //   .catch(err => {
-    //     console.log(err);
-    //   })
-    // }
+    if (this.props.match.params.id == this.props.match.params.id) {
+      axios.get(myServerDefaultMainVidURL).then( 
+        res => { this.setState({ mainVid: res.data }); }
+      )
+      .catch(err => {
+        console.log(err);
+      })
+    
+    } else {      
+      let newVideoID = this.props.match.params.id;
+      const myServerNewMainVidURL = "http://localhost:3000/videos/"+newVideoID;
+      axios.get(myServerNewMainVidURL).then( 
+        res => {this.setState({mainVid: res.data}); }
+      )
+      .catch(err => {
+        console.log(err);
+      })
+    }
   }
   componentDidUpdate(prevProps, prevState) {
     if(this.props.match.params.id !== prevProps.match.params.id) {
@@ -73,6 +74,8 @@ class Main extends React.Component {
       .catch(err => {
         console.log(err);}
       )
+    }
+    //else
       // axios.post(videosURL + API_KEY).then(
       //   res => {this.setState({ videos: res.data }); }
       // )
@@ -87,8 +90,10 @@ class Main extends React.Component {
       //     .then(res => {
       //     console.log(res.data)
       //     })
+      //     .catch(err => {
+      //       console.log(err);}
+      //     )
       // };
-    }
   }
   render() {
     return (
@@ -97,7 +102,7 @@ class Main extends React.Component {
         <div className="details">
           <div className="not-aside">
             <Article mainVid={this.state.mainVid} viewsIcon={this.state.viewsIcon} likesIcon={this.state.likesIcon}/>
-            <Comments id={this.state.mainVid.id} comments={this.state.comments} title={this.state.commentsTitleCount} formImage={this.state.userIcon} defaultCommentImage={DefaultCommentImage}/>
+            <Comments id={this.state.mainVid.id} comments={this.state.comments} title={this.state.commentsTitleCount} formImage={this.state.userIcon} defaultCommentImage={DefaultCommentImage} />
           </div>
           <Aside videos={this.state.videos} currentlyDisplayedVideo={this.state.mainVid} />
         </div>
