@@ -102,7 +102,7 @@ class Main extends React.Component {
         <div className="details">
           <div className="not-aside">
             <Article mainVid={this.state.mainVid} viewsIcon={this.state.viewsIcon} likesIcon={this.state.likesIcon}/>
-            <Comments id={this.state.mainVid.id} comments={this.state.comments} title={this.state.commentsTitleCount} formImage={this.state.userIcon} defaultCommentImage={DefaultCommentImage} />
+            <Comments comments={this.state.comments} title={this.state.commentsTitleCount} formImage={this.state.userIcon} defaultCommentImage={DefaultCommentImage} />
           </div>
           <Aside videos={this.state.videos} currentlyDisplayedVideo={this.state.mainVid} />
         </div>
