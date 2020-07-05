@@ -1,0 +1,71 @@
+@import '../../partials/colors';
+@import '../../partials/fonts';
+@import '../../partials/mixins';
+
+.next-video {
+  width: 100%;
+
+  @include tablet {
+    width: 50%;
+  }
+
+  @include desktop {
+    width: 33%;
+    border-left: solid 2px #E1E1E1;
+    padding-left: 16px;
+  }
+
+  &__title {
+    margin: 8px 0px;
+    color: $border-color;
+    @include h5-text-style;
+    
+    @include tablet {
+        margin: 32px 0px;
+        @include tablet-h5-text;
+    }
+  }
+
+  &__list {
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  &__item-anchor {
+    @include flex-row;
+    color: $global-color;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    width: fit-content;
+    margin: 0;
+  }
+
+  &__item-image {
+    width: 120px;
+    height: 70px;
+    opacity: 0.9;
+    border-radius: 2.5px;
+    
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__item-text {
+    margin-left: 16px;
+    @include desktop {
+    }
+  }
+
+  &__item-title {
+    font-weight: 900;
+    @include h5-text-style;
+  }
+
+  &__item-creator {
+    font-weight: 300;
+    @include h5-text-style;
+  }
+}

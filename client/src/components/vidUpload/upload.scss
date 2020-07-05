@@ -1,0 +1,185 @@
+@import '../../partials/colors';
+@import '../../partials/fonts';
+@import '../../partials/mixins';
+
+.upload {
+    box-sizing: border-box;
+    width: 100%;
+    @include flex-column;
+    @include standard-padding;
+
+    @include tablet{
+        @include tablet-padding;
+    }
+
+    @include desktop {
+        @include desktop-padding;
+    }
+    
+    &__title {
+        font-family: $global-font__bold;
+        margin: 24px 0px;
+        @include h1-text-style;
+        
+        @include tablet {
+            @include tablet-h1-text;
+        }
+
+        @include desktop {
+            margin-top: 48px;
+        }
+    }
+
+    .add-video {
+        width: 100%;
+        font-weight: 100;  
+        @include flex-column;
+        @include h5-text-style;
+       
+        @include tablet {
+            @include tablet-h5-text;
+        }
+    }
+
+    .inputs-container {
+        width: 100%;
+        @include flex-column;
+        justify-content: space-between;
+
+        @include tablet {
+            padding: 32px 0px;
+            border-top: 2px solid #E1E1E1;
+            border-bottom: 2px solid #E1E1E1;
+        }
+
+        @include desktop {
+            @include flex-row;
+        }
+
+        .label-text {
+            text-transform: uppercase;
+            color: #E1E1E1;
+            font-family: $global-font__bold;
+        }
+
+        .file-upload {
+            width: 288px;
+            height: 153px;
+            @include flex-column;
+
+            @include tablet {
+                width: 344px;
+                height: 183px;
+            }
+
+            .thumbnail {
+                height: 100%; 
+                background-image: url('../../assets/Images/Upload-video-preview.jpg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;  
+                border: none;
+            }
+        }
+    
+        .info-container {
+            width: 100%;
+            margin-top: 32px;
+
+            @include tablet {
+                margin-top: 40px;
+                height: 183px;
+            }
+
+            @include desktop {
+                margin: 0 0 0 24px;
+            }
+    
+            .vid-title {
+                width: 97.5%;
+                height: 20px;
+                padding: 5px;
+                font-family: $global-font;
+                border: 1px solid $border-color;
+                border-radius: 5px;
+                background-color: #fafafa;
+                margin-bottom: 8px;
+    
+                &:hover, &:focus {
+                    border-color: $primary-CTA-color;
+                }
+    
+                &::placeholder{
+                    color: #323232;
+                    @include h5-text-style;
+                    font-family: $global-font;
+            
+                }
+            }
+        
+            .description-content {
+                width: 97.5%;
+                height: 50px;
+                padding: 5px;
+                font-family: $global-font;
+                border: 1px solid $border-color;
+                border-radius: 5px;
+                background-color: #fafafa;
+    
+                &:hover, &:focus {
+                    border-color: $primary-CTA-color;
+                }
+    
+                @include tablet {
+                    height: 95px;
+                }
+    
+                &::placeholder {
+                    font-family: $global-font;
+                    color: #323232;
+                    @include h5-text-style;
+                }
+            }
+        }
+    }
+
+    .buttons-container{
+        width: 100%;
+        margin: 32px 0px;
+        display: flex;
+        justify-content: flex-end;
+        font-family: $global-font;
+
+        .cancel-button {
+            display: none;
+            @include tablet {
+            display: inline-block;
+            margin: 0px 16px;
+            background: white;
+            border: none;
+            color: blue;
+            text-transform: uppercase;
+            }
+        }
+
+        .upload-button {
+            width: 100%;
+            background: $primary-CTA-color;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 4px;
+            padding: 15px 5px;
+            cursor: pointer;
+
+            @include tablet {
+                width: 150px;
+            }
+
+            
+            &:hover {
+                background: $CTA-hover-color;
+            }
+        }
+    }
+}

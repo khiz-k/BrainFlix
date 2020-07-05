@@ -1,0 +1,95 @@
+@import '../../partials/colors';
+@import '../../partials/fonts';
+@import '../../partials/mixins';
+
+.description {
+  width: 100%;
+
+  &__title {
+    color: $global-color; 
+    margin: 16px 0px;
+    @include h1-text-style;
+
+    @include tablet {
+      @include tablet-h1-text;
+    }
+
+    @include desktop {
+      margin: 32px 0px;
+    }
+  }
+
+  &__top {
+    border-bottom: solid 2px #E1E1E1;
+    padding-bottom: 16px;
+
+    @include tablet {
+        padding: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+  }
+
+  &__sub-title {
+    display: flex;
+    flex-direction: row;
+
+    @include tablet {
+      justify-content: flex-start;
+    }
+
+  }
+
+  &__name {
+    @include h3-text-style;
+
+    @include tablet {
+      @include tablet-h3-text;
+    }
+  }
+
+  &__timestamp {
+    color: #E1E1E1;
+    font-weight: 100;   
+    margin-left: 8px;
+    @include h3-text-style;
+
+    @include tablet {
+      @include tablet-h3-text;
+      margin-left: 16px;
+    }
+
+  }
+
+  &__stats {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @include h4-text-style;
+
+    @include tablet {
+      @include tablet-h4-text;
+      margin: 0;
+    }
+
+    .views {
+      margin: 0 16px;
+    }
+
+    .likes {
+      margin: 0 16px;
+    }
+  }
+
+  &__paragraph {
+    margin: 16px 0px;
+    @include h3-text-style;
+
+    @include tablet {
+      @include tablet-h3-text;
+      width: 75%;
+    }
+  }
+}
