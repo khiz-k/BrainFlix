@@ -21,7 +21,8 @@ export default class Upload extends Component {
     .catch(err => {
       console.log(err);
     })
-    // form.reset();
+    const form = e.target;
+    form.reset();
   }
   changeHandler = (e) => {
     this.setState({[e.target.name]: e.target.value});
