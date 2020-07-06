@@ -61,10 +61,10 @@ app.get('/upload', (req, res) => {
 app.get('/webpage', (req, res) => {
   res.sendFile('/public/index.html', {root: __dirname});
 })
-app.post('/videos', (req, res) => {
-    if (!req.body.message) return res.status(401).json({reply: "add a message property"})
-    videoList.push(req.body.message)
-    res.send(videoList);
+
+app.post('/videos', (req,res) => {
+  videoList.push(req.body.message)
+  res.send(videoList);
 })
 
 app.listen(3000, (err) => {
