@@ -22,6 +22,9 @@ app.use(bodyParser.urlencoded())
 //   const sendVideo = mainVid.find(item => item.id === req.params.videoId);
 //   res.send(sendVideo);
 // })
+app.get('/videos/undefined', (req,res) => {
+  res.send(video0);
+})
 app.get('/videos/1af0jruup5gu', (req,res) => {
   res.send(video0);
 })
