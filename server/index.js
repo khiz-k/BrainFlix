@@ -18,10 +18,6 @@ const video8 = require ("./mainData/video8-1a8qhruuzky3.json");
 app.use(cors());
 app.use(bodyParser.urlencoded())
 
-// app.get(`videos/:id`, (req, res) => {
-//   const sendVideo = mainVid.find(item => item.id === req.params.videoId);
-//   res.send(sendVideo);
-// })
 app.get('/videos/undefined', (req,res) => {
   res.send(video0);
 })
