@@ -63,7 +63,14 @@ app.get('/webpage', (req, res) => {
 })
 
 app.post('/videos', (req,res) => {
-  videoList.push(req.body.message)
+  const video = {
+    id: req.body.id,
+    title: req.body.title,
+    channel: req.body.channel,
+    image: req.body.image,
+    description: req.body.description
+  }
+  videoList.push(video);
   res.send(videoList);
 })
 
