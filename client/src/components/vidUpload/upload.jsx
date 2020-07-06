@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './upload.scss';
+import axios from 'axios';
 
 export default class Upload extends Component {
   state = {
-    id: '', // randomize
+    id: `${Math.floor(Math.random() * 10000) + 1}`, 
     title: '',
     channel: 'Mohan Muruge',
     image: '',
@@ -11,33 +12,29 @@ export default class Upload extends Component {
   }
   submitHandler = (e) => {
     e.preventDefault();
-    this.setState({[e.target.videoId]: Math.floor((Math.random() * 1000) + 1)});
     console.log(this.state);
-
-    // idValue = "2af1jruup4gu";
-    // titleValue = e.target.title.value;
-    // channelValue = "Mohan Muruge";
-    // imageValue = e.target.thumbnail.value;
-    // descriptionValue = e.target.userDescription.value;
-
-    // let videoObject = {title: titleValue, channel: channelValue, image: imageValue, description: descriptionValue, timestamp: Date.now(), video: videoValue};
-
-    // postVideo(videoObject.id, videoObject.title, videoObject.channel, videoObject.image, videoObject.description);
-
-    // e.reset();
+    const myServerVideosURL = "http://localhost:3000/videos";
+    axios.post(myServerVideosURL, this.state).then(
+      res => {
+        console.log(res)
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    // form.reset();
   }
   changeHandler = (e) => {
-    this.setState({[e.target.name]: e.target.value})
+    this.setState({[e.target.name]: e.target.value});
   }
   render () {
     return (
       <section className="upload">
         <h1 className="upload__title">Upload Video</h1>
-        <form name="addVideo" className="add-video" id="add-video" value={this.state.videoId} onSubmit={this.submitHandler} >
+        <form name="addVideo" className="add-video" id="add-video" value={this.state.id} onSubmit={this.submitHandler} >
           <div className="inputs-container">
             <div className="file-upload">
               <label htmlFor="thumbnail" className="label-text">Video Thumbnail</label>
-              <input type="text" name="thumbnail" className="thumbnail" id="thumbnail" placeholder="" value={this.state.image} onChange={this.changeHandler} />
+              <input type="text" name="image" className="thumbnail" id="thumbnail" placeholder="Click to provide the image path" value={this.state.image} onChange={this.changeHandler} />
             </div>
             <div className="info-container">
               <label htmlFor="title" className="label-text">Title Your Video</label>
