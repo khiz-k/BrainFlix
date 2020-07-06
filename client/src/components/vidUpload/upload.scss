@@ -78,6 +78,22 @@
                     background-position: center;
                     background-size: cover;  
                     border: none;
+                    font-family: $global-font;
+                    border: 1px solid $border-color;
+                    border-radius: 5px;
+                    text-align: center;
+                     
+                    &::placeholder {
+                        color: white;
+                        font-weight: 700;
+                        font-size: 11px;
+                    }
+        
+                    &:hover, &:focus {
+                        border-color: $primary-CTA-color;
+                        background-image: none;
+                        background-color: #fafafa;
+                    }
                 }
             }
 
