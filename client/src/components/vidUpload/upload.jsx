@@ -1,54 +1,83 @@
-import React, { Component } from 'react';
-import './upload.scss';
-import axios from 'axios';
+import React from 'react';
+import axios from "axios";
+import './main.scss';
+// import components
+import Hero from '../hero/hero';
+import Article from '../article/article';
+import Comments from '../comments/comments';
+import Aside from '../aside/aside';
+// import assets for state
+import BrainFlixLogo from '../../assets/Logo/Logo-brainflix.svg';
+import UserImage from '../../assets/Images/Mohan-muruge.jpg';
+import ViewsIcon from '../../assets/Icons/SVG/Icon-views.svg';
+import LikesIcon from '../../assets/Icons/SVG/Icon-likes.svg';
+import DefaultCommentImage from "../../assets/Images/default-image.jpg";
 
-export default class Upload extends Component {
+class Main extends React.Component {
   state = {
-    id: `${Math.floor(Math.random() * 10000) + 1}`, 
-    title: '',
-    channel: 'Mohan Muruge',
-    image: '',
-    description: ''
+    siteLogo: BrainFlixLogo,
+    userIcon: UserImage,
+    viewsIcon: ViewsIcon,
+    likesIcon: LikesIcon,
+    defaultCommentImage: DefaultCommentImage,
+    mainVid: {},
+    videos: [],
+    comments: [],
+    commentsTitleCount: `${3} comments`,
   }
-  submitHandler = (e) => {
-    e.preventDefault();
-    console.log(this.state);
+  componentDidMount() {
+    let videoID = "1af0jruup5gu";
     const myServerVideosURL = "http://localhost:3000/videos";
-    axios.post(myServerVideosURL, this.state).then(
-      res => {
-        console.log(res)
-    })
+    const myServerDefaultMainVidURL = "http://localhost:3000/videos/"+videoID;
+    axios.get(myServerVideosURL).then(
+      res => this.setState({ videos: res.data })
+        // setTimeout(() => window.scrollTo(0, 0), 100)
+    )
     .catch(err => {
       console.log(err);
     })
-    const form = e.target;
-    form.reset();
-  }
-  changeHandler = (e) => {
-    this.setState({[e.target.name]: e.target.value});
-  }
-  render () {
-    return (
-      <section className="upload">
-        <h1 className="upload__title">Upload Video</h1>
-        <form name="addVideo" className="add-video" id="add-video" value={this.state.id} onSubmit={this.submitHandler} >
-          <div className="inputs-container">
-            <div className="file-upload">
-              <label htmlFor="thumbnail" className="label-text">Video Thumbnail</label>
-              <input type="text" name="image" className="thumbnail" id="thumbnail" placeholder="Click to provide the image path" value={this.state.image} onChange={this.changeHandler} />
-            </div>
-            <div className="info-container">
-              <label htmlFor="title" className="label-text">Title Your Video</label>
-              <input type="text" name="title" className="vid-title" id="vid-title" placeholder="Add a title to your video" required={true} value={this.state.title} onChange={this.changeHandler}/>
-              <label htmlFor="description" className="label-text">Add a Video Description</label>
-              <textarea type="text" name="description" className="description-content" id="description-content" placeholder="Add a description of your video" required={true} value={this.state.description} onChange={this.changeHandler}/> 
-            </div>    
-          </div>
-          <div className="buttons-container">
-            <button className="cancel-button">cancel</button><input type="submit" name="postVideo" className="upload-button" id="upload-button" value="publish" />
-          </div>
-        </form>
-      </section>
+    axios.get(myServerDefaultMainVidURL).then(
+      res => (this.setState({ comments: res.data.comments })
+      )
     )
+    .catch(err => {
+      console.log(err);
+    })
+    let newVideoID = this.props.match.params.id;
+    const myServerNewMainVidURL = "http://localhost:3000/videos/"+newVideoID;
+    axios.get(myServerNewMainVidURL).then( 
+      res => {this.setState({mainVid: res.data}); }
+    )
+    .catch(err => {
+      console.log(err);
+    })
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if(this.props.match.params.id !== prevProps.match.params.id) {
+      let newVideoID = this.props.match.params.id;
+      const myServerNewMainVidURL = "http://localhost:3000/videos/"+newVideoID;
+      axios.get(myServerNewMainVidURL).then( 
+        res => {this.setState({mainVid: res.data}); }
+      )
+      .catch(err => {
+        console.log(err);}
+      )
+    }
+  }
+  render() {
+    return (
+      <main>
+        <Hero mainVid={this.state.mainVid}/>
+        <div className="details">
+          <div className="not-aside">
+            <Article mainVid={this.state.mainVid} viewsIcon={this.state.viewsIcon} likesIcon={this.state.likesIcon}/>
+            <Comments comments={this.state.comments} title={this.state.commentsTitleCount} formImage={this.state.userIcon} defaultCommentImage={DefaultCommentImage} />
+          </div>
+          <Aside videos={this.state.videos} currentlyDisplayedVideo={this.state.mainVid} />
+        </div>
+      </main>
+    );
   }
 }
+
+export default Main;
