@@ -1,4 +1,4 @@
-## Video Website | Run the server first (it runs on port 3000), then npm start the client on any other port (recommend 3001)!
+## Video Website
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  You will need to install node-sass, axios, react-router, express, body-parser and cors via npm to run this properly.  And installing nodemon makes your life much easier in terms of server testing!
 
