@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  You will need to install node-sass, axios, react-router, express, body-parser and cors via npm to run this properly.  And installing nodemon makes your life much easier in terms of server testing!
 
+![Run example](/baseball.gif)
+
 ## Available Scripts
 
 In the project directory, you can run:
