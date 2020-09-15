@@ -192,7 +192,8 @@ const callback = {
 };
 
 // routes
-app.get(`/videos`, callback.getVideoList);
+app.get("/", (req, res) => res.status(200).send("hello world"));
+app.get("/videos", callback.getVideoList);
 app.get("/videos/:vidId", callback.playVideo);
 app.post("/videos/:vidId/comment", callback.postComment);
 app.delete("/videos/:vidId/comment/:comId", callback.deleteComment);
