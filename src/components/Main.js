@@ -8,7 +8,7 @@ import * as func from "./functions.js";
 const API_KEY = "?api_key=12345678";
 // const baseURL = 'https://project-2-api.herokuapp.com';
 // const baseURL = 'http://localhost:8080'
-const baseURL = "https://khiz-brainflix-backend.herokuapp.com/";
+const baseURL = "https://khiz-brainflix-backend.herokuapp.com";
 
 // const getVideosUrl = baseURL + '/videos?api_key=' + API_KEY;
 
