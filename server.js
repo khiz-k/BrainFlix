@@ -7,7 +7,7 @@ const morgan = require("morgan");
 // const cors = require('cors');
 
 const app = express();
-port1 = 8080;
+port1 = process.env.PORT || 8080;
 
 const api_key = ["12345678", "abcdefgh", "87654321"];
 
